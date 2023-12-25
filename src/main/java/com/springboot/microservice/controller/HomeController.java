@@ -13,7 +13,6 @@ public class HomeController {
     @Autowired
     private UserDao userDao;
 
-
     @GetMapping("/home")
     public String home(Model model){
         model.addAttribute("title","smart contact manager");
@@ -21,19 +20,22 @@ public class HomeController {
     }
 
     @GetMapping("/register")
-    public String register(){
+    public String register(Model model){
+        model.addAttribute("userObject",new User());
         return "register";
     }
 
     @PostMapping("/register")
     @ResponseBody
-    public String registerPost(@RequestParam String username, String password, String email){
-        User user = new User();
-        user.setName(username);
-        user.setEmail(email);
-        user.setPassword(password);
+    public String registerPost(@ModelAttribute("userObject") User user){
+        System.out.println("user user name "+ user.getName());
         userDao.save(user);
         return "Done";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
 
 }
