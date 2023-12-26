@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserDao{
     public void save(User user);
+    public User findUserByEmail(String email);
 }
