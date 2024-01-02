@@ -3,7 +3,11 @@ package com.springboot.microservice.dao;
 import com.springboot.microservice.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface UserDao{
     public void save(User user);
     public User findUserByEmail(String email);
+    public List<User> allUsers();
+
 }

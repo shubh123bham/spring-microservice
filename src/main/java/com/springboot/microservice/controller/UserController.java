@@ -1,6 +1,7 @@
 package com.springboot.microservice.controller;
 
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/index")
     public String indexPage(){
+        System.out.println("here too index");
         return "index";
     }
 }

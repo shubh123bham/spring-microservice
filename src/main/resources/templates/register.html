@@ -21,9 +21,11 @@
 
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" required th:value="${userObject.email}">
+  <br>
+  <label for="email">Role:</label>
+  <input type="text" id="role" name="role" required th:value="${userObject.role}">
 
   <br>
-
   <button type="submit">Register</button>
 </form>
 </section>
